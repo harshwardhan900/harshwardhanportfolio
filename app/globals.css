@@ -1,0 +1,65 @@
+:root {
+  /* Color tokens — derived from the footage's two practical light sources */
+  --color-void: #0a0908;          /* near-black base */
+  --color-shadow: #0d0d0f;        /* deep gradient shadow */
+  --color-amber: #ff8a3d;         /* warm lamp glow */
+  --color-amber-soft: #ffb876;    /* warm highlight */
+  --color-blue: #3d7eff;          /* cool monitor glow */
+  --color-blue-soft: #8fb4ff;     /* cool highlight */
+  --color-paper: #f5f1ea;         /* warm off-white for text */
+  --color-paper-dim: rgba(245, 241, 234, 0.62);
+
+  /* Type tokens
+     Using a system-font stack by default so the project builds with zero
+     network dependency in this environment. To use Inter Tight + Inter as
+     webfonts, add next/font/google in app/layout.tsx (see comment there) —
+     these CSS variable names already match, so no other change is needed. */
+  --font-display: "Inter Tight", -apple-system, "SF Pro Display", "Segoe UI",
+    "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", -apple-system, "SF Pro Text", "Segoe UI",
+    "Helvetica Neue", Arial, sans-serif;
+
+  /* Motion tokens */
+  --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-void);
+  color: var(--color-paper);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
